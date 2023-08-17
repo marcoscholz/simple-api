@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Initital structure
+  - `composer.json` 
   - `README.md`
   - `CHANGELOG.md`
   - `LICENSE`
@@ -14,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Sets `@version` and `@build` everywhere
   - Creates a Release Commit
   - Builds a Changelog
+- PullRequest Workflow
+  - Analyzes code with PHP_CodeSniffer and PHP-CS-Fixer
 - Initial Version
 ### Changed
 ### Deprecated
