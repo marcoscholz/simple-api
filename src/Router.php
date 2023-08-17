@@ -28,7 +28,9 @@ class Router extends Endpoint
 
         $this->namespace = rtrim($namespace, '/');
 
-        if (!str_starts_with($this->uri, $this->namespace)) return;
+        if (!str_starts_with($this->uri, $this->namespace)) {
+            return;
+        }
 
         // OPTIONS
         if ($this->method === "OPTIONS") {
@@ -129,7 +131,6 @@ class Router extends Endpoint
             if ($method !== null) {
                 $handler->$method($match->params);
             }
-
         } catch (ApiException $apiException) {
             $this->throwJsonError(
                 errorCode: $apiException->getCode(),

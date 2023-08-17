@@ -21,7 +21,12 @@ class ApiException extends Exception
      * @param Exception|null $previous The previous exception (if any).
      * @param array $details Additional details related to the exception.
      */
-    public function __construct(protected $message = "", protected $code = 500, protected $previous = null, protected array $details = [])
+    public function __construct(
+        protected       $message = "",
+        protected       $code = 500,
+        protected       $previous = null,
+        protected array $details = []
+    )
     {
         parent::__construct($message, $code, $this->previous);
     }

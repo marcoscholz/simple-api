@@ -86,7 +86,7 @@ class Request
      * @param callable-string|null $handlerMethod Handler method.
      * @return static
      */
-    static public function GET(string $pattern, string $handlerClass, ?string $handlerMethod = null) : Request
+    public static function GET(string $pattern, string $handlerClass, ?string $handlerMethod = null): Request
     {
         return new static("GET", $pattern, $handlerClass, $handlerMethod);
     }
@@ -99,7 +99,7 @@ class Request
      * @param callable-string|null $handlerMethod Handler method.
      * @return static
      */
-    static public function POST(string $pattern, string $handlerClass, ?string $handlerMethod = null) : Request
+    public static function POST(string $pattern, string $handlerClass, ?string $handlerMethod = null): Request
     {
         return new static("POST", $pattern, $handlerClass, $handlerMethod);
     }
@@ -112,7 +112,7 @@ class Request
      * @param callable-string|null $handlerMethod Handler method.
      * @return static
      */
-    static public function PUT(string $pattern, string $handlerClass, ?string $handlerMethod = null) : Request
+    public static function PUT(string $pattern, string $handlerClass, ?string $handlerMethod = null): Request
     {
         return new static("PUT", $pattern, $handlerClass, $handlerMethod);
     }
