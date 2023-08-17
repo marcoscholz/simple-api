@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
@@ -33,7 +36,6 @@ jobs:
 
       - name: Check coding standards with PHP_CodeSniffer
         run: |
-          composer install
           vendor/bin/phpcs --standard=PSR2 src/
 
       - name: Commit and push changes
@@ -42,4 +44,4 @@ jobs:
           git config --local user.name "GitHub Action"
           git add -u
           git commit -m "Fix coding standards issues" || echo "No changes to commit"
-          git push
+          git push origin ${{ github.head_ref }}
