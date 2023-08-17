@@ -3,7 +3,7 @@ name: PR Coding Standards Check
 on:
   pull_request:
     branches:
-      - main # or your default branch name
+      - main
 
 jobs:
   coding-standards:
@@ -19,14 +19,14 @@ jobs:
           php-version: '8.2'
           tools: phpcs, php-cs-fixer
 
+      - name: Automatically fix code issues with PHP-CS-Fixer
+        run: |
+          vendor/bin/php-cs-fixer fix --rules=@PSR2 --using-cache=no src/
+
       - name: Check coding standards with PHP_CodeSniffer
         run: |
           composer install
           vendor/bin/phpcs --standard=PSR2 src/ # Adjust the standard and path as needed
-
-      - name: Automatically fix code issues with PHP-CS-Fixer
-        run: |
-          vendor/bin/php-cs-fixer fix --rules=@PSR2 --using-cache=no src/ # Adjust the rules and path as needed
 
       - name: Commit and push changes
         run: |
