@@ -1,0 +1,47 @@
+name: PR Coding Standards Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  coding-standards:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: phpcs, php-cs-fixer
+
+      - name: Composer install
+        run: |
+          composer install
+
+      - name: Automatically fix code issues with PHP-CS-Fixer
+        run: |
+          vendor/bin/php-cs-fixer fix --rules=@PSR2 --using-cache=no src/
+
+      - name: Automatically fix code issues with phpcbf
+        run: |
+          vendor/bin/phpcbf --standard=PSR2 src/
+
+      - name: Check coding standards with PHP_CodeSniffer
+        run: |
+          vendor/bin/phpcs --standard=PSR2 src/
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -u
+          git commit -m "Fix coding standards issues" || echo "No changes to commit"
+          git push origin ${{ github.head_ref }}
