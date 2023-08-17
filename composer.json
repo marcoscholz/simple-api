@@ -12,7 +12,7 @@
   },
   "autoload": {
     "psr-4": {
-      "MarcoScholz\\SimpleApi\\": "src/"
+      "MarcoScholz\\SimpleApi\\": "src/SimpleApi/"
     }
   },
   "authors": [

@@ -1,7 +1,8 @@
 # SimpleApi by Marco Scholz
 
 ![PHP 8.2](https://img.shields.io/badge/PHP-8.2-8892BF.svg?style=flat-square)
-![Build Status](https://github.com/marcoscholz/simple-api/workflows/Build/badge.svg)
+![Build Status](https://github.com/marcoscholz/simple-api/workflows/release.yml/badge.svg)
+https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg
 
 
 **SimpleApi** is a minimalist, yet powerful standalone PHP framework designed to streamline the process of building robust APIs.
