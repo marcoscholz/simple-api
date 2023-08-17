@@ -19,6 +19,10 @@ jobs:
           php-version: '8.1'
           tools: phpcs, php-cs-fixer
 
+      - name: Composer install
+        run: |
+          composer install
+
       - name: Automatically fix code issues with PHP-CS-Fixer
         run: |
           vendor/bin/php-cs-fixer fix --rules=@PSR2 --using-cache=no src/
