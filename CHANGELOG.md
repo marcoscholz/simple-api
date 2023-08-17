@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Sets `@version` and `@build` everywhere
   - Creates a Release Commit
   - Builds a Changelog
+- Initial Version
 ### Changed
 ### Deprecated
 ### Removed
