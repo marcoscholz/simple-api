@@ -14,7 +14,7 @@ use Throwable;
 class Router extends Endpoint
 {
     /** @var string Base namespace for the router. */
-    readonly public string $namespace;
+    public readonly string $namespace;
 
     /**
      * Initializes the router, tests request patterns, and runs the appropriate method or throws an error.

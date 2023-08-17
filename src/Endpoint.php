@@ -12,25 +12,25 @@ namespace MarcoScholz\SimpleApi;
 class Endpoint
 {
     /** @var string HTTP method of the request. */
-    readonly public string $method;
+    public readonly string $method;
 
     /**
      * @var string Protocol of the request. Valid values are 'http' or 'https'.
      * @example http, https
      */
-    readonly public string $protocol;
+    public readonly string $protocol;
 
     /** @var string Scheme of the request. */
-    readonly public string $scheme;
+    public readonly string $scheme;
 
     /** @var string URI of the request. */
-    readonly public string $uri;
+    public readonly string $uri;
 
     /** @var string Path of the request. */
-    readonly public string $path;
+    public readonly string $path;
 
     /** @var string Query string of the request. */
-    readonly public string $query;
+    public readonly string $query;
 
     /** @var string|null Body content of the request. */
     public ?string $body = null;
@@ -45,7 +45,7 @@ class Endpoint
      * @var float start time as UNIX timestamp (in ms)
      * @example 1672774199.520594
      */
-    readonly protected float $start;
+    protected readonly float $start;
 
     /**
      * Endpoint constructor. Initializes properties based on the current request.

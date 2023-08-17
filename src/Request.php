@@ -16,16 +16,16 @@ namespace MarcoScholz\SimpleApi;
 class Request
 {
     /** @var string HTTP method for the request pattern. */
-    readonly public string $method;
+    public readonly string $method;
 
     /** @var string URL pattern for the request. */
-    readonly public string $pattern;
+    public readonly string $pattern;
 
     /** @var class-string Fully qualified class name of the handler. */
-    readonly public string $handlerClass;
+    public readonly string $handlerClass;
 
     /** @var callable-string|null Method name of the handler. */
-    readonly public ?string $handlerMethod;
+    public readonly ?string $handlerMethod;
 
     /** @var string Regular expression derived from the URL pattern. */
     public string $regex = "uninitialized";
@@ -116,5 +116,4 @@ class Request
     {
         return new static("PUT", $pattern, $handlerClass, $handlerMethod);
     }
-
 }

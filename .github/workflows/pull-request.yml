@@ -16,17 +16,21 @@ jobs:
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.2'
+          php-version: '8.1'
           tools: phpcs, php-cs-fixer
 
       - name: Automatically fix code issues with PHP-CS-Fixer
         run: |
           vendor/bin/php-cs-fixer fix --rules=@PSR2 --using-cache=no src/
 
+      - name: Automatically fix code issues with phpcbf
+        run: |
+          vendor/bin/phpcbf --standard=PSR2 src/
+
       - name: Check coding standards with PHP_CodeSniffer
         run: |
           composer install
-          vendor/bin/phpcs --standard=PSR2 src/ # Adjust the standard and path as needed
+          vendor/bin/phpcs --standard=PSR2 src/
 
       - name: Commit and push changes
         run: |

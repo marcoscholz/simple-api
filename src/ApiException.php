@@ -25,8 +25,8 @@ class ApiException extends Exception
         protected $message = "",
         protected $code = 500,
         protected $previous = null,
-        protected array $details = [] )
-    {
+        protected array $details = []
+    ) {
         parent::__construct($message, $code, $this->previous);
     }
 
